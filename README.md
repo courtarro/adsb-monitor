@@ -5,4 +5,4 @@ A web-based frontend for the `dump1090` tool used to monitor ADS-B signals. Upda
 
 A slightly modified version of `gmap.html` is included, as well. It points to `data.php` by default.
 
-Use my slighly modified version of `dump1090` to see all flights (including those with no positional data) as well as gain access to the "Message count" and "Last seen" values.
+Use [my slighly modified version of `dump1090`](https://github.com/courtarro/dump1090) to see all flights (including those with no positional data) as well as gain access to the "Message count" and "Last seen" values.
