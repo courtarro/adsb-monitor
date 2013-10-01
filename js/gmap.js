@@ -40,8 +40,10 @@ function refreshGeneralInfo() {
 }
 
 function refreshSelectedInfo() {
-	if (!selectedPlane)
+	if (!selectedPlane) {
+		$("#selinfo").text("Click on a plane for info");
 		return;
+	}
 
 	var p = selectedPlane;		// easier to type, read
 
@@ -90,7 +92,7 @@ function selectPlane(plane) {
 
 	if (oldSelected && oldSelected.marker)
 		oldSelected.marker.setIcon(getIconForPlane(oldSelected));		// remove the highlight in the previously selected plane
-	if (selectedPlane.marker)
+	if (selectedPlane && selectedPlane.marker)
 		selectedPlane.marker.setIcon(getIconForPlane(selectedPlane));
 
 	refreshSelectedInfo();
@@ -106,7 +108,7 @@ function update() {
 
 			found[plane.hex] = true;
 
-			plane.visible = (plane.lat != 0 || plane.lon != 0);
+			plane.visible = (plane.lat != 0 || plane.lon != 0);		// shortcut to whether lat/lon exists
 			plane.flight = $.trim(plane.flight);
 			
 			// Update the table
@@ -120,6 +122,8 @@ function update() {
 			tr.children("td").each(function(j) {
 				if (j == 0) {
 					var html = '<a href="#" onclick="return planeTable_click(\'' + plane.hex + '\');">' + plane.hex + '</a>';
+					if (plane.visible)
+						html = '<b>' + html + '</b>';
 					$(this).html(html);
 				} else if (j == 1) {
 					$(this).text(plane.flight);
@@ -133,6 +137,7 @@ function update() {
 				oldPlane.speed = plane.speed;
 				oldPlane.lat = plane.lat;
 				oldPlane.lon = plane.lon;
+				oldPlane.visible = plane.visible;
 				oldPlane.track = plane.track;
 				oldPlane.flight = plane.flight;
 				plane = oldPlane;
@@ -167,32 +172,34 @@ function update() {
 				else
 					plane.marker.setTitle(plane.flight + ' (' + plane.hex + ')')
 
-				if (plane == selectedPlane)
-					refreshSelectedInfo();
-
 				visiblePlanes++;
 			}
 
+			if (plane == selectedPlane)
+				refreshSelectedInfo();
+
 			numPlanes++;
-		}
-
-
-		// Remove the stuff that no longer exists in the json
-		for (var key in planeTableRows) {
-			if (!found[key]) {
-				planeTableRows[key].remove();
-				delete planeTableRows[key];
-			}
 		}
 
 		// Remove idle planes from the map
 		for (var key in planes) {
 			if (!found[key]) {
 				var oldPlane = planes[key];
+
+				// Remove the marker
 				if (oldPlane.marker) {
 					planes[key].marker.setMap(null);
 				}
-				delete planes[key];
+
+				planeTableRows[key].remove();		// remove from the table
+				delete planeTableRows[key];
+
+				// Deselect this plane if it's selected
+				if (oldPlane == selectedPlane) {
+					selectPlane(null);
+				}
+
+				delete planes[key];					// remove from the library
 			}
 		}
 

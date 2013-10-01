@@ -21,18 +21,13 @@ body {
 	border-left: 1px #666 solid;
 	font-family: Helvetica;
 }
-#info div {
-	padding: 0;
-	padding-left: 10px;
-	margin: 0;
-}
-#info div h1 {
+#info h1 {
 	margin-top: 10px;
-	font-size: 16px;
+	font-size: 18px;
 }
-#info div p {
+#info .content {
 	font-size: 14px;
-	color: #333;
+	padding-left: 15px;
 }
 table {
 	font-size: 9pt;
