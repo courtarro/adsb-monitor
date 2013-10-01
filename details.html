@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>ADS-B Monitor</title>
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/details.css" />
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+		<script src="js/vendor/jquery.metadata.js"></script>
+		<script src="js/vendor/jquery.tablesorter.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/details.js"></script>
+	</head>
+<body>
+
+<h1>ADS-B Monitor</h1>
+<table id="flightlist" class="tablesorter {sortlist: [[0,0]]}">
+<thead>
+<tr>
+	<th>ICAO Address</th>
+	<th>Flight</th>
+	<th>Altitude</th>
+	<th>Speed</th>
+	<th>Latitude</th>
+	<th>Longitude</th>
+	<th>Track</th>
+	<th>Message Count</th>
+	<th>Last Seen</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<div><a href="index.html">Google Maps viewer</a></div>
+
+<div id="status"></div>
+
+</body>
+</html>

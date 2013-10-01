@@ -7,37 +7,11 @@ html {
 #status {
 	font-family: "Lucida Sans Unicode", "Helvetica", "Arial", sans-serif;
 }
-.disabled {
-	color: #888;
-}
-.tablesorter {
-	font-family: "Lucida Sans Unicode", "Helvetica", "Arial", sans-serif;
-	background-color: #ccc;
-	margin: 10px 0pt 15px;
-	font-size: 10pt;
-	text-align: left;
-}
-.tablesorter thead tr th, .tablesorter tfoot tr th {
-	background-color: #e6eeee;
-	border: 1px solid #fff;
-	font-size: 10pt;
-	padding: 4px;
-	padding-right: 25px;
-}
 .tablesorter thead tr .tablesorter-header {
 	background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
 	background-repeat: no-repeat;
 	background-position: center right;
 	cursor: pointer;
-}
-.tablesorter tbody td {
-	color: #333;
-	padding: 4px;
-	background-color: #fff;
-	vertical-align: top;
-}
-.tablesorter tbody tr:nth-child(even) td {
-	background-color: #f8f8f8;
 }
 .tablesorter thead tr .tablesorter-headerAsc {
 	background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
