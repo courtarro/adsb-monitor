@@ -3,8 +3,6 @@ existing = {};			// store known flights, key = ICAO, value = table row
 
 function update() {
 	$.ajax({url: DATA_HREF, dataType: "json"}).done(function(result) {
-		//$("#" + id).children(".pingresult").text(result);
-		//$(".tablesorter").trigger("update");
 		var added = 0;
 		var updated = 0;
 		var removed = 0;
